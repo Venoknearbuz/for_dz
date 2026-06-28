@@ -38,3 +38,22 @@ print(result)
 #3 172.16.0.10 10.0.0.5 192.168.1.1
 
 #3
+class Weapon:
+    def __init__(self,name,damage,durability):
+        self.name = name
+        self.damage = damage
+        self.durability = durability
+    def attack(self):
+        if self.durability <= 0:
+            print(f"Оружие {self.name} уже сломано! Атака невозможна.")
+            return
+
+        print(f"{self.name} наносит {self.damage}")
+        self.durability -= 1
+
+        if self.durability <= 0:
+            print(f"{self.name} сломано")
+
+sword = Weapon("Стальной меч", damage=15, durability=2)
+for i in range(3):
+    sword.attack()
